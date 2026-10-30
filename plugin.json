@@ -1,0 +1,42 @@
+{
+  "name": "Discord Reader",
+  "version": "0.1.0",
+  "description": "봇 토큰으로 디스코드 서버의 채널·메시지를 읽어 AI 도구로 제공합니다.",
+  "main": "main.js",
+  "renderer": "renderer.js",
+  "settingsSchema": {
+    "type": "object",
+    "properties": {
+      "botToken": {
+        "type": "string",
+        "title": "봇 토큰",
+        "description": "Discord Developer Portal > Bot 의 토큰. 'Message Content Intent'를 켜야 메시지 본문을 읽을 수 있습니다.",
+        "format": "password",
+        "x-order": 1
+      },
+      "defaultGuildId": {
+        "type": "string",
+        "title": "기본 서버 ID",
+        "description": "guildId를 생략했을 때 사용할 서버 ID (선택).",
+        "pattern": "^[0-9]*$",
+        "x-order": 2
+      },
+      "maxMessages": {
+        "type": "integer",
+        "title": "한 번에 가져올 최대 메시지 수",
+        "default": 1000,
+        "minimum": 1,
+        "maximum": 10000,
+        "x-order": 3
+      }
+    }
+  },
+  "id": "discord-reader",
+  "tags": [
+    "Discord",
+    "디스코드",
+    "요약",
+    "봇"
+  ],
+  "usage": "설정에 봇 토큰을 넣고 \"디스코드 #채널 어제 대화 요약해줘\"라고 하면 AI가 discord_* 도구로 메시지를 읽습니다."
+}
